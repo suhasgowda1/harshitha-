@@ -24,59 +24,6 @@
 				<img class="fixed-image" src="img/hbd.png" alt="">
 				<div class="columns medium-12 wow fadeIn"
                 data-wow-duration="2s" data-wow-delay="0.3s">
-                <!-- Background Music -->
-<audio id="bgMusic" src="music/bby.mp3" preload="auto" volume="1"></audio>
-
-<script>
-$('#unlock').click(function() {
-    // 🎵 Play music immediately at full volume
-    var music = document.getElementById('bgMusic');
-    music.currentTime = 0; // start from beginning, change to desired time in seconds
-    music.volume = 1;       // full volume
-    music.play().catch(() => {
-        console.log('Autoplay blocked, user interaction required');
-    });
-
-    // 🔐 Check unlock code
-    var code = '';
-    $('.code').each(function() { code += $(this).val(); });
-
-    if (code === '26') {
-        triggerEmotionalPeak();
-    } else {
-        alert("Wrong Code ❌");
-    }
-});
-
-// 🎉 Emotional Peak Sequence
-function triggerEmotionalPeak() {
-    $('.login-form').fadeOut();
-
-    // 1️⃣ slight pause
-    setTimeout(function() {
-        // 2️⃣ text fades in
-        $('.congratulation-text').fadeIn(1000);
-    }, 500);
-
-    // 3️⃣ show content + confetti
-    setTimeout(function() {
-        $('.success-area').fadeIn(1500);
-        blastConfetti();
-    }, 1500);
-}
-
-// Confetti
-function blastConfetti() {
-    var duration = 2500;
-    var end = Date.now() + duration;
-
-    (function frame() {
-        confetti({ particleCount: 6, angle: 60, spread: 60, origin: { x: 0 } });
-        confetti({ particleCount: 6, angle: 120, spread: 60, origin: { x: 1 } });
-        if (Date.now() < end) requestAnimationFrame(frame);
-    })();
-}
-</script>
 
 				<p class="message-text">
 						Happy Birthday…
